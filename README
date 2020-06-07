@@ -1,0 +1,39 @@
+                         Filesystem Minishell
+................................................................................
+	Pentru rezolvarea temei au fost create 2 structuri carea ajuta la foarmarea
+a 2 liste dublu inlantuite, acestea avand pe langa pointerii pentru next si prev
+si un pointer catre tipurile corespunzatoare(Directory sau File).
+	Pentru a putea verifica functiile, fiecare linie de intrare a fost separata
+in cuvinte prin intermdiul functiei strtok.
+................................................................................
+	Functionalitatea comenzilor "touch" si "mkdir" a fost implementate prin 2
+etape: initial se creaza noduri de lista care pointeaza catre o variabila in
+care au fost introduse datele specifice pentru un director sau pentru un fisier,
+ulterior aceste noduri fiind adaugate la liste, in asa fel incat lista sa fie
+sortata alfabetic in functie de numele directoarelor sau al fisierelor.
+................................................................................
+	Comanda "pwd" este inplementata prin intermdediul unei functii recursive
+care contina sa fie apelata cu directorul parinte al directorului initial, pana
+cand se ajunge la directorul radacina, urmand sa fie printate numele
+directorelor separate prin caracterul '/'.
+................................................................................
+	Comanda "tree" este implementata printr-o functie recursiva care lisateaza
+numele directorului curent, urmat de listarea succesiva a fisierelor din acesta,
+urmand ca functia sa fie reapelata pentru fiecare director din directorul
+curent. Pentru ca afisarea sa fie identata corespunzator se foloseste o functie
+auxiliara care printeaza numele corespunzator de spatii pentru fiecare nivel.
+................................................................................
+	Comanda "rm" functioneaza ca si eliminarea unui nod de lista, urmat de
+eliberarea spatiului alocat pentru acel fisier. Comanda "rmdir" se foloseste
+de comanda "rm" pentru a elimina fiserele din directul selectat, urmand ca
+functia sa fie reapelata pentru fiecare subdirector, iar la final sa se revina
+si sa fie eliberata memoria pentru acest director.
+................................................................................
+	Comanda "find" este implementata printr-o functie care cauta recursiv
+printre fiserele directrorului curent, urmand sa caute si in subdirectoare
+pana la o anumita adancime. Pentru a se verifica nivelul la care se cauta,
+functia are un parametru fix max_depth, cat si un parametru level care se 
+incrementeaza pe masura cautarii in subdirectioare. Cand se gaseste un fisier,
+inainte de a fi printat se verifica daca acesta se gaseste in intervalul corect
+de marime.
+................................................................................
